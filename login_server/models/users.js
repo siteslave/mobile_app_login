@@ -58,13 +58,14 @@ exports.setExpireKey = function (db, username, expire_time) {
     return q.promise;
 };
 
-exports.getExpireTime = function (db, username) {
+exports.getExpireTime = function (db, username, key) {
 
     var q = Q.defer();
 
     db('users')
         .select('*')
         .where('username', username)
+        .where('session_key', key)
         .then(function (rows) {
             q.resolve(rows[0].expire_time);
         })
