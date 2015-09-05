@@ -1,0 +1,10 @@
+.idea
+login_server/.idea
+login_server/node_modules
+mobile_login/node_modules
+mobile_login/.idea
+mobile_login/platforms
+mobile_login/plugins
+.DS_Store
+.apk
+.app

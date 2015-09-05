@@ -1,0 +1,22 @@
+extends layout
+
+block scripts
+    script(src="/javascripts/login.js")
+
+block content
+  h1= title
+  br
+  div(ng-app="app")
+      form(action="#", name="frmLogin", ng-controller="LoginController")
+        p
+          label(for="username") Username:
+          input#username(type="text", name="username",
+          ng-model="username", ng-required="true")
+        p
+          label(for="password") Password:
+          input#password(type="password", name="password",
+          ng-model="password", ng-required="true")
+
+        p
+          button(type="button", ng-disabled="frmLogin.$invalid",
+          ng-click="doLogin()") Login
