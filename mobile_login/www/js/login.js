@@ -13,9 +13,19 @@ angular.module('starter', ['ionic'])
         // org.apache.cordova.statusbar required
         StatusBar.styleLightContent();
       }
+
     });
   })
-  .controller('LoginController', function ($scope, $ionicPopup, LoginService) {
+  .controller('LoginController', function ($scope, $timeout, $ionicPopup, $ionicLoading, LoginService) {
+
+    $ionicLoading.show({
+      template: "Redirecting..."
+    });
+
+    $timeout(function () {
+      $ionicLoading.hide();
+      window.location.href = "home.html";
+    }, 3000);
 
     $scope.doLogin = function () {
       console.log($scope.user.username);
