@@ -20,7 +20,7 @@ angular.module('starter', ['ionic'])
 
     var logged = window.localStorage['logged'];
 
-    if (logged === true) {
+    if (logged === 'true') {
       $ionicLoading.show({
         template: "Redirecting..."
       });
