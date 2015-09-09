@@ -18,14 +18,18 @@ angular.module('starter', ['ionic'])
   })
   .controller('LoginController', function ($scope, $timeout, $ionicPopup, $ionicLoading, LoginService) {
 
-    $ionicLoading.show({
-      template: "Redirecting..."
-    });
+    var logged = window.localStorage['logged'];
 
-    $timeout(function () {
-      $ionicLoading.hide();
-      window.location.href = "home.html";
-    }, 3000);
+    if (logged === true) {
+      $ionicLoading.show({
+        template: "Redirecting..."
+      });
+
+      $timeout(function () {
+        $ionicLoading.hide();
+        window.location.href = "home.html";
+      }, 3000);
+    }
 
     $scope.doLogin = function () {
       console.log($scope.user.username);
